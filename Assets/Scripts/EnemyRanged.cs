@@ -1,22 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace SAE.GAD176.Tutorials.Polymorphism
 {
-    public class SmartEnemy : Enemy
+    public class EnemyRanged : Enemy
     {
         // Start is called before the first frame update
         protected override void Start()
         {
             base.Start();
-            RunAtPlayer();
         }
 
         // Update is called once per frame
         protected override void Update()
         {
-
+            Move();
+            Rotate();
             //HitPlayer();
         }
 
@@ -24,10 +25,21 @@ namespace SAE.GAD176.Tutorials.Polymorphism
         {
             if (playerReference != null)
             {
-                if (Vector3.Distance(playerReference.transform.position, transform.position) < 1)
+                if (Vector3.Distance(playerReference.transform.position, transform.position) < 10)
                 {
-                    Debug.Log("Stop Right There Criminal Scum " + transform.name);
+                    Debug.Log("EAT BULLETS YOU FILTHY CASUAL! " + transform.name);
                 }
+            }
+        }
+
+        protected override void Move()
+        {
+            // Lerp = linear interpolation
+            transform.position = Vector3.Lerp(transform.position, targetPosition.position, moveSpeed * Time.deltaTime);
+            if (Vector3.Distance(transform.position, playerReference.transform.position) < 10)
+            {
+                moveSpeed = 0;
+                HitPlayer();
             }
         }
 
@@ -38,11 +50,11 @@ namespace SAE.GAD176.Tutorials.Polymorphism
             Debug.Log("RUNS STRIGHT AT THE PLAYER AND EXPLODED " + transform.name);
         }
 
-        protected void HitPlayer()
+        protected override void HitPlayer()
         {
             if (playerReference)
             {
-                if (Vector3.Distance(transform.position, playerReference.transform.position) < 1)
+                if (Vector3.Distance(transform.position, playerReference.transform.position) < 10)
                 {
                     Debug.Log("Dealing Damage to the player!");
                 }

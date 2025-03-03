@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SAE.GAD176.Tutorials.Polymorphism
-{
+
     public class Player : MonoBehaviour
     {
         // public Weapon myWeapon;
@@ -28,7 +27,6 @@ namespace SAE.GAD176.Tutorials.Polymorphism
         void Update()
         {
             // if the mouse click is pressed
-            // myWrapon.Fire()
+            // myWeapon.Fire()
         }
     }
-}

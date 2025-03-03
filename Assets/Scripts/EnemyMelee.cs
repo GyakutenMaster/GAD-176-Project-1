@@ -4,18 +4,15 @@ using UnityEngine;
 
 namespace SAE.GAD176.Tutorials.Polymorphism
 {
-    public class FastEnemy : Enemy
+    public class EnemyMelee : Enemy
     {
         protected override void Shout()
         {
-            //base.Shout();
-
-            // do my base Shout first, then do my extra functionality here, or swap it around to functionality first then base Shout.
             if (playerReference != null)
             {
-                if (Vector3.Distance(playerReference.transform.position, transform.position) < 10)
+                if (Vector3.Distance(playerReference.transform.position, transform.position) < 3)
                 {
-                    Debug.Log("REEEEEEEhh " + transform.name);
+                    Debug.Log("TASTE MY BLADE YOU FILTHY CASUAL! " + transform.name);
                 }
             }
 
@@ -25,14 +22,15 @@ namespace SAE.GAD176.Tutorials.Polymorphism
         // Update is called once per frame
         protected override void Update()
         {
-            RunAtPlayer();
+            Move();
+            Rotate();
         }
 
         public override void ChangeHealth(float amount)
         {
             base.ChangeHealth(amount);
 
-            Debug.Log("Run AWAY I'm Scareds! " + transform.name);
+            Debug.Log("Tactical Retreat! " + transform.name);
         }
     }
 }
