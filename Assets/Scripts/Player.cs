@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+namespace SAE.GAD176.Project1
+{
     public class Player : MonoBehaviour
     {
         // public Weapon myWeapon;
@@ -30,3 +31,4 @@ using UnityEngine;
             // myWeapon.Fire()
         }
     }
+}

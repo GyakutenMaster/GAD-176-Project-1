@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace SAE.GAD176.Tutorials.Polymorphism
+namespace SAE.GAD176.Project1
 {
     public class EnemyRanged : Enemy
     {

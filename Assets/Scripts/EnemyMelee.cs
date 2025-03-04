@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SAE.GAD176.Tutorials.Polymorphism
+namespace SAE.GAD176.Project1
 {
     public class EnemyMelee : Enemy
     {
