@@ -8,6 +8,8 @@ namespace SAE.GAD176.Project1
     {
         protected override void Shout()
         {
+            base.Shout();
+            
             if (playerReference != null)
             {
                 if (Vector3.Distance(playerReference.transform.position, transform.position) < 3)

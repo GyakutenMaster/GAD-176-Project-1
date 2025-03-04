@@ -1,5 +1,6 @@
 using StarterAssets;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace SAE.GAD176.Project1
 {
@@ -13,6 +14,9 @@ namespace SAE.GAD176.Project1
         private Vector3 referenceVelocity = Vector3.zero; // this used to store our previous velocity
         [SerializeField] protected float smoothness = 5f;
         [SerializeField] protected Vector3 targetRotation;
+
+        protected NavMeshAgent agent;
+        protected RetreatPoint retreatPoint;
 
         // Start is called before the first frame update
         protected virtual void Start()
@@ -65,7 +69,10 @@ namespace SAE.GAD176.Project1
 
         protected virtual void Retreat()
         {
-
+            if(health <= 50)
+            {
+                //agent.SetDestination(retreatPoint.OnDrawGizmos());
+            }
         }
 
         protected virtual void HitPlayer()
