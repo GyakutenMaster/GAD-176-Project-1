@@ -6,14 +6,5 @@ using UnityEngine;
 
 public class RetreatPoint : MonoBehaviour
 {
-    public void OnDrawGizmos()
-    {
-        List<RetreatPoint> retreatPoints = new List<RetreatPoint>(GetComponents<RetreatPoint>());
-        Gizmos.color = Color.blue;
-
-        for (int i = 0; i < retreatPoints.Count; i++)
-        {
-            Vector3 retreatPosition = retreatPoints[i].transform.position;
-        }
-    }
+        [SerializeField] private List<Transform> retreatPoints = new List<Transform>();
 }

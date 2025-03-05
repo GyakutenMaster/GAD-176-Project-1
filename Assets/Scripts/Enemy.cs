@@ -16,7 +16,7 @@ namespace SAE.GAD176.Project1
         [SerializeField] protected Vector3 targetRotation;
 
         protected NavMeshAgent agent;
-        protected RetreatPoint retreatPoint;
+        [SerializeField] protected Transform retreatPoint;
 
         // Start is called before the first frame update
         protected virtual void Start()
@@ -29,8 +29,9 @@ namespace SAE.GAD176.Project1
         // Update is called once per frame
         protected virtual void Update()
         {
-            Move();
-            Rotate();
+                Move();
+                Rotate();
+                Retreat();
         }
 
         protected virtual void Shout() // If we want to override a function, it has to be a 'virtual' function.
@@ -45,20 +46,20 @@ namespace SAE.GAD176.Project1
             // play default shouting effect
         }
 
-        public virtual void ChangeHealth(float amount)
-        {
-            health += amount;
-        }
+        //public virtual void ChangeHealth(float amount)
+        //{
+        //    health += amount;
+        //}
 
         protected virtual void Move()
         {
-            // Lerp = linear interpolation
-            transform.position = Vector3.Lerp(transform.position, targetPosition.position, moveSpeed * Time.deltaTime);
-            if (Vector3.Distance(transform.position, playerReference.transform.position) < 3)
-            {
-                moveSpeed = 0;
-                HitPlayer();
-            }
+                // Lerp = linear interpolation
+                transform.position = Vector3.Lerp(transform.position, targetPosition.position, moveSpeed * Time.deltaTime);
+                if (Vector3.Distance(transform.position, playerReference.transform.position) < 3)
+                {
+                    moveSpeed = 0;
+                    HitPlayer();
+                }
         }
 
         protected virtual void Rotate()
@@ -69,10 +70,7 @@ namespace SAE.GAD176.Project1
 
         protected virtual void Retreat()
         {
-            if(health <= 50)
-            {
-                //agent.SetDestination(retreatPoint.OnDrawGizmos());
-            }
+                transform.position = Vector3.Lerp(transform.position, retreatPoint.position, moveSpeed * Time.deltaTime);
         }
 
         protected virtual void HitPlayer()

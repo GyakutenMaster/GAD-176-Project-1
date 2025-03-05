@@ -43,12 +43,12 @@ namespace SAE.GAD176.Project1
             }
         }
 
-        public override void ChangeHealth(float amount)
-        {
-            base.ChangeHealth(amount);
+        //public override void ChangeHealth(float amount)
+        //{
+        //    base.ChangeHealth(amount);
 
-            Debug.Log("RUNS STRIGHT AT THE PLAYER AND EXPLODED " + transform.name);
-        }
+        //    Debug.Log("RUNS STRIGHT AT THE PLAYER AND EXPLODED " + transform.name);
+        //}
 
         protected override void HitPlayer()
         {

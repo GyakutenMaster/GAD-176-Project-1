@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,15 +25,17 @@ namespace SAE.GAD176.Project1
         // Update is called once per frame
         protected override void Update()
         {
-            Move();
-            Rotate();
+                Move();
+                Rotate();
+                Retreat();
         }
 
-        public override void ChangeHealth(float amount)
-        {
-            base.ChangeHealth(amount);
 
-            Debug.Log("Tactical Retreat! " + transform.name);
-        }
+        //public override void ChangeHealth(float amount)
+        //{
+        //    base.ChangeHealth(amount);
+
+        //    Debug.Log("Tactical Retreat! " + transform.name);
+        //}
     }
 }

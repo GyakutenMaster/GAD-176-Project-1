@@ -15,13 +15,13 @@ namespace SAE.GAD176.Project1
         // Start is called before the first frame update
         void Start()
         {
-            // search the scene for all the enemies, this include scripts inherit from enemy
-            allEnemiesInScene.AddRange(FindObjectsOfType<Enemy>());
+            //// search the scene for all the enemies, this include scripts inherit from enemy
+            //allEnemiesInScene.AddRange(FindObjectsOfType<Enemy>());
 
-            for (int i = 0; i < allEnemiesInScene.Count; i++)
-            {
-                allEnemiesInScene[i].ChangeHealth(-20);
-            }
+            //for (int i = 0; i < allEnemiesInScene.Count; i++)
+            //{
+            //    allEnemiesInScene[i].ChangeHealth(-20);
+            //}
         }
 
         // Update is called once per frame
