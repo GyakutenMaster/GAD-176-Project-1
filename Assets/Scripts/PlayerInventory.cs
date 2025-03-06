@@ -109,5 +109,11 @@ namespace GAD176.Project1
             Debug.Log("Weapon not found, returning 0");
             return 0;
         }
+
+        public void PickupAmmo()
+        {
+            // Increase the number of ammos.
+            CurrentWeapon.AddAmmo();
+        }
     }
 }

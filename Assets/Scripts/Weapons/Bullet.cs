@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GAD176.WeeklyActivities.WeekThree
+namespace GAD176.Project1
 {
     public class Bullet : MonoBehaviour
     {
         private Rigidbody rigid;
-        private float bulletSpeed = 1;
+        private float bulletSpeed = 5;
         // Start is called before the first frame update
         void Start()
         {

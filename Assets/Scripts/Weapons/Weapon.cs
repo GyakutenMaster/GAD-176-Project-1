@@ -16,6 +16,10 @@ namespace GAD176.Project1
         [SerializeField] protected int clipSize;
         [SerializeField] protected int currentAmmo;
 
+        public AudioClip reloadSound;
+        public AudioClip emptySound;
+        public AudioSource sfx;
+
         protected virtual void Start()
         {
             currentAmmo = clipSize;
@@ -56,6 +60,12 @@ namespace GAD176.Project1
         {
             if (currentAmmo < clipSize && ammo > 0)
             {
+                // play reload sfx
+                if (sfx != null && reloadSound != null)
+                {
+                    // Call the play oneshot of the sfx source and pass in the collected sound.
+                    sfx.PlayOneShot(reloadSound);
+                }
 
                 // here lets grab how much ammo needs to be reloaded i.e. if a clip 
                 // is 10 bullets and I've shot 3 I should only reload the 3.
@@ -72,10 +82,17 @@ namespace GAD176.Project1
             }
             else if (ammo > 0)
             {
-                Debug.Log("Clip is already full No need to reload.");
+                Debug.Log("Clip is already full. No need to reload.");
             }
             else
             {
+                // play empty sfx
+                if (sfx != null && emptySound != null)
+                {
+                    // Call the play oneshot of the sfx source and pass in the collected sound.
+                    sfx.PlayOneShot(emptySound);
+                }
+
                 Debug.Log("We ran out of ammo");
             }
         }
@@ -85,6 +102,12 @@ namespace GAD176.Project1
             // you could investigate in using this function in classes that inherit from this.
             GameObject clone = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             Destroy(clone, 5);
+        }
+
+        public void AddAmmo()
+        {
+            // Increase the number of ammos.
+            ammo = 30;
         }
     }
 }
