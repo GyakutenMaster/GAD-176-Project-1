@@ -4,7 +4,6 @@ namespace GAD176.Project1
 {
     public class Ammo : MonoBehaviour
     {
-        public int increasedAmmo = 30;
         public AudioClip collectedSound;
         public AudioSource sfx;
         private void OnTriggerEnter(Collider other)

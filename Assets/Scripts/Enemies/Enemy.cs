@@ -15,23 +15,38 @@ namespace SAE.GAD176.Project1
         [SerializeField] protected float smoothness = 5f;
         [SerializeField] protected Vector3 targetRotation;
 
-        protected NavMeshAgent agent;
-        [SerializeField] protected Transform retreatPoint;
+        public NavMeshAgent agent;
+        public Transform retreatPoint;
+        bool isFollowing = true;
 
         // Start is called before the first frame update
         protected virtual void Start()
         {
             // get a refenrence to the player
             playerReference = FindAnyObjectByType<FirstPersonController>();
+            Debug.Log("Player Reference = " + playerReference.name);
+            agent = GetComponent<NavMeshAgent>();
+            isFollowing = true;
             Shout();
         }
 
         // Update is called once per frame
         protected virtual void Update()
         {
-                Move();
-                Rotate();
+            if (health <= 50)
+            {
+                isFollowing = false;
                 Retreat();
+            }
+            else if (isFollowing)
+            {
+                Move();
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                agent.SetDestination(this.transform.position);
+            }
+            Kill();
         }
 
         protected virtual void Shout() // If we want to override a function, it has to be a 'virtual' function.
@@ -48,18 +63,13 @@ namespace SAE.GAD176.Project1
 
         //public virtual void ChangeHealth(float amount)
         //{
+        //    if()
         //    health += amount;
         //}
 
         protected virtual void Move()
         {
-                // Lerp = linear interpolation
-                transform.position = Vector3.Lerp(transform.position, targetPosition.position, moveSpeed * Time.deltaTime);
-                if (Vector3.Distance(transform.position, playerReference.transform.position) < 3)
-                {
-                    moveSpeed = 0;
-                    HitPlayer();
-                }
+            agent.SetDestination(playerReference.transform.position);
         }
 
         protected virtual void Rotate()
@@ -70,7 +80,7 @@ namespace SAE.GAD176.Project1
 
         protected virtual void Retreat()
         {
-                transform.position = Vector3.Lerp(transform.position, retreatPoint.position, moveSpeed * Time.deltaTime);
+            agent.SetDestination(retreatPoint.position);
         }
 
         protected virtual void HitPlayer()
@@ -81,6 +91,7 @@ namespace SAE.GAD176.Project1
                 {
                     Debug.Log("Dealing Damage to the player!");
                 }
+
             }
         }
 
@@ -89,6 +100,7 @@ namespace SAE.GAD176.Project1
             if (health <= 0)
             {
                 Destroy(gameObject);
+                Debug.Log("You killed the enemy, you filthy animal!");
             }
         }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SAE.GAD176.Project1
 {
-    public class EnemyMelee : Enemy
+    public class EnemyMelee : Enemy, IDamageable
     {
         protected override void Shout()
         {
@@ -22,19 +22,12 @@ namespace SAE.GAD176.Project1
             //base.Shout();
         }
 
-        // Update is called once per frame
-        protected override void Update()
-        {
-                Move();
-                Rotate();
-                Retreat();
-        }
 
         protected override void HitPlayer()
         {
             if (playerReference)
             {
-                if (Vector3.Distance(transform.position, playerReference.transform.position) < 3)
+                if (Vector3.Distance(transform.position, playerReference.transform.position) <= 3)
                 {
                     Debug.Log("Dealing Knife Damage to the filthy casual! " + transform.name);
                 }

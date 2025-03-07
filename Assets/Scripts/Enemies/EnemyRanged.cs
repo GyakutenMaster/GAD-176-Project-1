@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SAE.GAD176.Project1
 {
-    public class EnemyRanged : Enemy
+    public class EnemyRanged : Enemy, IDamageable
     {
         // Start is called before the first frame update
         protected override void Start()
@@ -13,13 +13,6 @@ namespace SAE.GAD176.Project1
             base.Start();
         }
 
-        // Update is called once per frame
-        protected override void Update()
-        {
-            Move();
-            Rotate();
-            //HitPlayer();
-        }
 
         protected override void Shout()
         {
@@ -32,16 +25,6 @@ namespace SAE.GAD176.Project1
             }
         }
 
-        protected override void Move()
-        {
-            // Lerp = linear interpolation
-            transform.position = Vector3.Lerp(transform.position, targetPosition.position, moveSpeed * Time.deltaTime);
-            if (Vector3.Distance(transform.position, playerReference.transform.position) < 10)
-            {
-                moveSpeed = 0;
-                HitPlayer();
-            }
-        }
 
         //public override void ChangeHealth(float amount)
         //{

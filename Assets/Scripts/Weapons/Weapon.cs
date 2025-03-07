@@ -109,7 +109,7 @@ namespace GAD176.Project1
         public void AddAmmo()
         {
             // Increase the number of ammos.
-            ammo = (int)AmmoRestock.increasedAmmo;
+            ammo = 30;
         }
     }
 }
