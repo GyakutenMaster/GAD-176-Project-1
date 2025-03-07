@@ -18,7 +18,9 @@ namespace GAD176.Project1
 
         public AudioClip reloadSound;
         public AudioClip emptySound;
-        public AudioSource sfx;
+        public AudioSource reloadSfx;
+        public AudioSource emptySfx;
+        public Ammo AmmoRestock;
 
         protected virtual void Start()
         {
@@ -61,10 +63,10 @@ namespace GAD176.Project1
             if (currentAmmo < clipSize && ammo > 0)
             {
                 // play reload sfx
-                if (sfx != null && reloadSound != null)
+                if (reloadSfx != null && reloadSound != null)
                 {
                     // Call the play oneshot of the sfx source and pass in the collected sound.
-                    sfx.PlayOneShot(reloadSound);
+                    reloadSfx.PlayOneShot(reloadSound);
                 }
 
                 // here lets grab how much ammo needs to be reloaded i.e. if a clip 
@@ -87,10 +89,10 @@ namespace GAD176.Project1
             else
             {
                 // play empty sfx
-                if (sfx != null && emptySound != null)
+                if (emptySfx != null && emptySound != null)
                 {
                     // Call the play oneshot of the sfx source and pass in the collected sound.
-                    sfx.PlayOneShot(emptySound);
+                    emptySfx.PlayOneShot(emptySound);
                 }
 
                 Debug.Log("We ran out of ammo");
@@ -107,7 +109,7 @@ namespace GAD176.Project1
         public void AddAmmo()
         {
             // Increase the number of ammos.
-            ammo = 30;
+            ammo = (int)AmmoRestock.increasedAmmo;
         }
     }
 }

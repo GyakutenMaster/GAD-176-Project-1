@@ -13,7 +13,7 @@ namespace SAE.GAD176.Project1
             
             if (playerReference != null)
             {
-                if (Vector3.Distance(playerReference.transform.position, transform.position) < 3)
+                if (Vector3.Distance(playerReference.transform.position, transform.position) < 10)
                 {
                     Debug.Log("TASTE MY BLADE YOU FILTHY CASUAL! " + transform.name);
                 }
@@ -28,6 +28,17 @@ namespace SAE.GAD176.Project1
                 Move();
                 Rotate();
                 Retreat();
+        }
+
+        protected override void HitPlayer()
+        {
+            if (playerReference)
+            {
+                if (Vector3.Distance(transform.position, playerReference.transform.position) < 3)
+                {
+                    Debug.Log("Dealing Knife Damage to the filthy casual! " + transform.name);
+                }
+            }
         }
 
 

@@ -56,7 +56,7 @@ namespace SAE.GAD176.Project1
             {
                 if (Vector3.Distance(transform.position, playerReference.transform.position) < 10)
                 {
-                    Debug.Log("Dealing Damage to the player!");
+                    Debug.Log("Dealing Gun Damage to the filthy casual! " + transform.name);
                 }
             }
         }

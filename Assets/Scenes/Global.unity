@@ -134,8 +134,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 096e9076ecc90f344aa58e905e8c2fc6, type: 3}
+  m_Resource: {fileID: 8300000, guid: 096e9076ecc90f344aa58e905e8c2fc6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -244,7 +244,9 @@ MonoBehaviour:
   currentAmmo: 0
   reloadSound: {fileID: 8300000, guid: 096e9076ecc90f344aa58e905e8c2fc6, type: 3}
   emptySound: {fileID: 8300000, guid: 98510268a7eb9d1408e103eca3fe567f, type: 3}
-  sfx: {fileID: 22281819}
+  reloadSfx: {fileID: 22281819}
+  emptySfx: {fileID: 22281837}
+  AmmoRestock: {fileID: 0}
   BurstShotCount: 3
   BurstFireRate: 10
 --- !u!114 &22281821
@@ -270,7 +272,9 @@ MonoBehaviour:
   currentAmmo: 0
   reloadSound: {fileID: 8300000, guid: 096e9076ecc90f344aa58e905e8c2fc6, type: 3}
   emptySound: {fileID: 8300000, guid: 98510268a7eb9d1408e103eca3fe567f, type: 3}
-  sfx: {fileID: 22281819}
+  reloadSfx: {fileID: 22281819}
+  emptySfx: {fileID: 22281837}
+  AmmoRestock: {fileID: 0}
   pelletCount: 5
   spreadAngle: 30
 --- !u!114 &22281822
@@ -296,7 +300,9 @@ MonoBehaviour:
   currentAmmo: 0
   reloadSound: {fileID: 8300000, guid: 3bcb66cbf3fd2a743af9992d381e57fa, type: 3}
   emptySound: {fileID: 8300000, guid: 98510268a7eb9d1408e103eca3fe567f, type: 3}
-  sfx: {fileID: 22281819}
+  reloadSfx: {fileID: 22281819}
+  emptySfx: {fileID: 22281837}
+  AmmoRestock: {fileID: 0}
 --- !u!114 &22281823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +326,9 @@ MonoBehaviour:
   currentAmmo: 0
   reloadSound: {fileID: 0}
   emptySound: {fileID: 0}
-  sfx: {fileID: 0}
+  reloadSfx: {fileID: 0}
+  emptySfx: {fileID: 0}
+  AmmoRestock: {fileID: 0}
 --- !u!114 &22281824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,6 +364,103 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
   m_PrefabInstance: {fileID: 2046351783}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &22281837
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22281818}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 98510268a7eb9d1408e103eca3fe567f, type: 3}
+  m_Resource: {fileID: 8300000, guid: 98510268a7eb9d1408e103eca3fe567f, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &45353506 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4098408631325585820, guid: 1ef551a5f5b433543b556a3e6fa999f5, type: 3}
@@ -2530,6 +2635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5914b971ae738484f9ecd5d387c7af46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  increasedAmmo: 30
   collectedSound: {fileID: 8300000, guid: 3bcb66cbf3fd2a743af9992d381e57fa, type: 3}
   sfx: {fileID: 1400667390}
 --- !u!65 &1400667392
@@ -3302,6 +3408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5914b971ae738484f9ecd5d387c7af46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  increasedAmmo: 30
   collectedSound: {fileID: 8300000, guid: 3bcb66cbf3fd2a743af9992d381e57fa, type: 3}
   sfx: {fileID: 1654579308}
 --- !u!65 &1654579310
@@ -3672,6 +3779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5914b971ae738484f9ecd5d387c7af46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  increasedAmmo: 30
   collectedSound: {fileID: 8300000, guid: 3bcb66cbf3fd2a743af9992d381e57fa, type: 3}
   sfx: {fileID: 1757081025}
 --- !u!65 &1757081027
@@ -4146,6 +4254,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       insertIndex: -1
       addedObject: {fileID: 22281819}
+    - targetCorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 22281837}
   m_SourcePrefab: {fileID: 100100000, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
 --- !u!1001 &2069461570
 PrefabInstance:
@@ -4801,6 +4912,6 @@ SceneRoots:
   - {fileID: 112693233}
   - {fileID: 2132965284}
   - {fileID: 1035113355}
-  - {fileID: 1654579313}
   - {fileID: 1400667395}
   - {fileID: 1757081030}
+  - {fileID: 1654579313}
