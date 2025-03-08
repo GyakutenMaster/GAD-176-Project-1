@@ -10,10 +10,10 @@ namespace SAE.GAD176.Project1
         protected override void Shout()
         {
             base.Shout();
-            
+
             if (playerReference != null)
             {
-                if (Vector3.Distance(playerReference.transform.position, transform.position) < 10)
+                if (Vector3.Distance(playerReference.transform.position, transform.position) < 6)
                 {
                     Debug.Log("TASTE MY BLADE YOU FILTHY CASUAL! " + transform.name);
                 }
@@ -33,13 +33,5 @@ namespace SAE.GAD176.Project1
                 }
             }
         }
-
-
-        //public override void ChangeHealth(float amount)
-        //{
-        //    base.ChangeHealth(amount);
-
-        //    Debug.Log("Tactical Retreat! " + transform.name);
-        //}
     }
 }

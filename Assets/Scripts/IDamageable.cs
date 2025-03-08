@@ -1,12 +1,15 @@
 using UnityEngine;
 
-public interface IDamageable
+namespace SAE.GAD176.Project1
 {
-    void Kill();
+    public interface IDamageable
+    {
+        void Kill();
 
-    //float ReturnHealth();
+        //float ReturnHealth();
 
-    //float GetHealth();
+        //float GetHealth();
 
-    bool IsAlive();
+        //bool IsAlive();
+    }
 }

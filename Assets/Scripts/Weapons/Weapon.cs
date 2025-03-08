@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GAD176.Project1
+namespace SAE.GAD176.Project1
 {
     public class Weapon : MonoBehaviour
     {

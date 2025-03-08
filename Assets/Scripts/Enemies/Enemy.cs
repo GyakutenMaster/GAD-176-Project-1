@@ -7,7 +7,7 @@ namespace SAE.GAD176.Project1
     public class Enemy : MonoBehaviour, IDamageable
     {
         protected FirstPersonController playerReference; // protected acts just like private, no other scrpts can access or modify it, unless it is inheriting from this class.
-        [SerializeField] protected float health = 100;
+        [SerializeField] protected float health = 200;
 
         [SerializeField] protected Transform targetPosition;
         [SerializeField] protected float moveSpeed = 0.5f;
@@ -33,7 +33,7 @@ namespace SAE.GAD176.Project1
         // Update is called once per frame
         protected virtual void Update()
         {
-            if (health <= 50)
+            if (health <= 100)
             {
                 isFollowing = false;
                 Retreat();
@@ -41,11 +41,7 @@ namespace SAE.GAD176.Project1
             else if (isFollowing)
             {
                 Move();
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                agent.SetDestination(this.transform.position);
-            }
+            } 
             Kill();
         }
 
@@ -53,19 +49,24 @@ namespace SAE.GAD176.Project1
         {
             if (playerReference)
             {
-                if (Vector3.Distance(transform.position, playerReference.transform.position) < 10)
-                {
-                    Debug.Log("Shouting out to others. " + transform.name);
-                }
+                Debug.Log("Shouting out to others. " + transform.name);
             }
             // play default shouting effect
         }
 
-        //public virtual void ChangeHealth(float amount)
-        //{
-        //    if()
-        //    health += amount;
-        //}
+        private void OnTriggerEnter(Collider other)
+        {
+            // Check if the thing that has entered this trigger is the player by comparing the tag to Player.
+            if (other.tag == "Bullet")
+            {
+                ChangeHealth(-20);
+            }
+        }
+
+        protected virtual void ChangeHealth(float amount)
+        {
+            health += amount;
+        }
 
         protected virtual void Move()
         {
@@ -89,9 +90,8 @@ namespace SAE.GAD176.Project1
             {
                 if (Vector3.Distance(transform.position, playerReference.transform.position) < 3)
                 {
-                    Debug.Log("Dealing Damage to the player!");
+                    Debug.Log("Dealing Damage to the filthy casual!");
                 }
-
             }
         }
 
@@ -100,10 +100,8 @@ namespace SAE.GAD176.Project1
             if (health <= 0)
             {
                 Destroy(gameObject);
-                Debug.Log("You killed the enemy, you filthy animal!");
+                Debug.Log("You killed the enemy, you filthy casual!");
             }
         }
-
-        public bool IsAlive() => health > 0;
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GAD176.Project1
+namespace SAE.GAD176.Project1
 {
     public class Ammo : MonoBehaviour
     {
@@ -15,7 +15,7 @@ namespace GAD176.Project1
                 // Do not forget to check that we have a reference before accessing functions/variables.
                 if (other.GetComponent<PlayerInventory>() != null)
                 {
-                    // Increase the player's number of eggs by one.
+                    // Increase the player's number of ammos.
                     other.GetComponent<PlayerInventory>().PickupAmmo();
                     // Check that we have a sound and sfx reference.
                     if (sfx != null && collectedSound != null)
@@ -23,7 +23,7 @@ namespace GAD176.Project1
                         // Call the play oneshot of the sfx source and pass in the collected sound.
                         sfx.PlayOneShot(collectedSound);
                     }
-                    // Then destroy the egg.
+                    // Then destroy the ammo box.
                     Destroy(gameObject);
                 }
             }
